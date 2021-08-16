@@ -1,0 +1,59 @@
+{%load static%}
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+  width:100%;
+}
+
+h2{
+    text-align: center;
+    color: #FFA07A;
+}
+#tb-div {
+  box-shadow:0 0 10px goldenrod;
+  width: fit-content;
+  border-radius: 10px;
+  height: inherit;
+  margin: auto;
+  top: 10px;
+  margin-bottom: 50px;
+  text-align: center;
+  position: relative;
+}
+th, td {
+  padding: 15px;
+  text-align: left;
+}
+#details-table tr:nth-child(odd) {
+  background-color: #eee;
+}
+#details-table th {
+  background-color:rgb(36, 163, 36);
+  color:black;
+}
+</style>
+</head>
+<body>
+<div id=main-div>
+<h2>Here are your probable Soul Cars. Happy Driving with VinAudit!!!</h2>
+<div id=tb-div>
+<table id="details-table">
+  <tr>
+    {%for heading in details.columns %}
+    <th>{{heading}}</th>
+    {% endfor %}
+  </tr>
+  {% for val in details.values %}
+  <tr>
+      {%for i in val %}
+        <td>{{i}}</td>
+      {% endfor %}
+  </tr>
+  {% endfor %}
+</table>
+</div>
+</div>
+</body>
+</html>

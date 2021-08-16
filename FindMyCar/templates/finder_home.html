@@ -1,0 +1,137 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Find your SoulCar near you</title>
+    <style>
+        body,
+        div,
+        form,
+        input,
+        label {
+            padding: 0;
+            margin: 0;
+            outline: none;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 17px;
+            color: forestgreen;
+            line-height: 30px;
+        }
+        body {
+            background-image: url("{% static 'pleasant.jpg' %}");
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        h1 {
+            position: absolute;
+            margin: 0;
+            font-size: 40px;
+            font-family: 'Times New Roman', Times, serif;
+            color: #f77744;
+        }
+
+        .mainFrame {
+            width: fit-content;
+            border-radius: 6px;
+            box-shadow: 0 0 30px #006622;
+            height: inherit;
+            margin: auto;
+            top: 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        form {
+            width: 100vh;
+            padding: 25px;
+        }
+
+        .titleBanner {
+            position: relative;
+            height: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        input:hover::placeholder {
+            color: #006622;
+        }
+
+        .item input:hover {
+            border: 1px solid transparent;
+            box-shadow: 0 0 3px 0 #006622;
+            color: #006622;
+        }
+
+        input {
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input {
+            width: calc(100% - 10px);
+            padding: 5px;
+        }
+
+        .item {
+            position: relative;
+            margin: 10px;
+        }
+
+        .item span {
+            color: red;
+        }
+
+        .find-car-btn {
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        button {
+            width: flex;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background:rgb(32, 90, 178);
+            font-size: 16px;
+            color: rgb(194, 199, 194);
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #50a704;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="mainFrame">
+        <form action="findCars" method="POST">
+            {% csrf_token %}
+            <div class="titleBanner">
+                <h1>Find your Soul Car with us!</h1>
+            </div>
+            <br />
+            <fieldset style="border: 2px solid #f77744">
+                <legend>Search Information</legend>
+                <div class="item">
+                    <label for="pinCode"> Pin Code<span>*</span></label>
+                    <input id="pinCode" type="text" name="pinCode" />
+                </div>
+                <div class="item">
+                    <label for="distance">Distance From You (in miles)<span>*</span></label>
+                    <input id="distance" type="text" name="distance" />
+                </div>
+                <div class="find-car-btn">
+                    <button type="submit">Get me my Soul Cars</button>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</body>
+
+</html>
