@@ -15,6 +15,21 @@ zip_charSet = 'utf8'
 vehicle_charSet = 'utf8'
 dealer_charSet = 'utf8'
 
+zip_Info = pd.read_csv(settings.ZIP_INFO_PATH,
+                       delimiter=',', names=('zip_code', 'state_code', 'latitude', 'longitude', 'city', 'state'))
+# zip_info = zip_info.applymap(prune)
+listings = pd.read_csv(
+    settings.VEHICLE_INFO_PATH, encoding='raw_unicode_escape', engine='python', names=('vehicle_live_id', 'vin', 'stock', 'make', 'model', 'trim', 'year',
+                                                                                       'amenities', 'price', 'miles', 'exterior', 'description', 'certified',
+                                                                                       'transmission', 'body_type', 'speeds', 'doors', 'cylinders', 'engine',
+                                                                                       'displacement', 'zip_code', 'phone', 'imagefile', 'dealer_number', 'Distance'), skiprows=1)
+
+# None value column removed during Data Pruning
+listings.drop(['speeds', 'phone'], inplace=True, axis=1)
+
+dealers = pd.read_csv(settings.DEALER_INFO_PATH,
+                      encoding='unicode_escape', engine='python', names=('dealer_number', 'dealer_name', 'dealer_address'), dtype={'dealer_number': str, 'dealer_name': str, 'dealer_address': str})
+
 
 class load_Data():
     def __init__(self, user, password, dbname, host, port):
@@ -34,20 +49,6 @@ class load_Data():
 
 
 if __name__ == '__main__':
-    zip_Info = pd.read_csv(settings.ZIP_INFO_PATH,
-                           delimiter=',', names=('zip_code', 'state_code', 'latitude', 'longitude', 'city', 'state'))
-    # zip_info = zip_info.applymap(prune)
-    listings = pd.read_csv(
-        settings.VEHICLE_INFO_PATH, encoding='raw_unicode_escape', engine='python', names=('vehicle_live_id', 'vin', 'stock', 'make', 'model', 'trim', 'year',
-                                                                                           'amenities', 'price', 'miles', 'exterior', 'description', 'certified',
-                                                                                           'transmission', 'body_type', 'speeds', 'doors', 'cylinders', 'engine',
-                                                                                           'displacement', 'zip_code', 'phone', 'imagefile', 'dealer_number', 'Distance'), skiprows=1)
-
-    # None value column removed during Data Pruning
-    listings.drop(['speeds', 'phone'], inplace=True, axis=1)
-
-    dealers = pd.read_csv(settings.DEALER_INFO_PATH,
-                          encoding='unicode_escape', engine='python', names=('dealer_number', 'dealer_name', 'dealer_address'), dtype={'dealer_number': str, 'dealer_name': str, 'dealer_address': str})
 
     dbname = settings.DATABASES['default']['NAME']
     user = settings.DATABASES['default']['USER']
