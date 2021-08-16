@@ -5,6 +5,7 @@ import sys
 import mysql.connector as mc
 import pandas as pd
 from sqlalchemy import create_engine
+
 sys.path.append(os.path.join(os.path.dirname(__file__), os.pardir))
 
 zip_db = 'findmycar_zipinfo'
@@ -14,6 +15,13 @@ dealer_db = 'findmycar_dealers'
 zip_charSet = 'utf8'
 vehicle_charSet = 'utf8'
 dealer_charSet = 'utf8'
+
+dbname = settings.DATABASES['default']['NAME']
+user = settings.DATABASES['default']['USER']
+password = settings.DATABASES['default']['PASSWORD']
+host = settings.DATABASES['default']['HOST']
+port = 3360
+
 
 zip_Info = pd.read_csv(settings.ZIP_INFO_PATH,
                        delimiter=',', names=('zip_code', 'state_code', 'latitude', 'longitude', 'city', 'state'))
@@ -49,12 +57,6 @@ class load_Data():
 
 
 if __name__ == '__main__':
-
-    dbname = settings.DATABASES['default']['NAME']
-    user = settings.DATABASES['default']['USER']
-    password = settings.DATABASES['default']['PASSWORD']
-    host = settings.DATABASES['default']['HOST']
-    port = 3360
 
     zip_load = load_Data(user, password, dbname, host, port)
     vehicle_load = load_Data(user, password, dbname, host, port)
