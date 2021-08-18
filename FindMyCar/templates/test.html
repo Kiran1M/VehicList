@@ -37,23 +37,27 @@ th, td {
 </head>
 <body>
 <div id=main-div>
-<h2>Here are your probable Soul Cars. Happy Driving with VinAudit!!!</h2>
-<div id=tb-div>
-<table id="details-table">
-  <tr>
-    {%for heading in details.columns %}
-    <th>{{heading}}</th>
-    {% endfor %}
-  </tr>
-  {% for val in details.values %}
-  <tr>
-      {%for i in val %}
-        <td>{{i}}</td>
+  {% if no_zip %}
+    <h2>Looks like you drove very far. No dat for given Pin available.</h2>
+  {% else %}
+  <h2>Here are your probable Soul Cars. Happy Driving with VinAudit!!!</h2>
+  <div id=tb-div>
+    <table id="details-table">
+      <tr>
+        {%for heading in details.columns %}
+        <th>{{heading}}</th>
+        {% endfor %}
+      </tr>
+      {% for val in details.values %}
+      <tr>
+          {%for i in val %}
+            <td>{{i}}</td>
+          {% endfor %}
+      </tr>
       {% endfor %}
-  </tr>
-  {% endfor %}
-</table>
-</div>
+    </table>
+  </div>
+  {% endif %}
 </div>
 </body>
 </html>
