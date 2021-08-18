@@ -130,10 +130,10 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'FindMyCar/django_stored_static_assets')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# ZIP_INFO_PATH = os.path.join(BASE_DIR, 'FindMyCar\data\zip_info.csv')
-# VEHICLE_INFO_PATH = os.path.join(BASE_DIR, 'FindMyCar\data\listings.csv')
-# DEALER_INFO_PATH = os.path.join(BASE_DIR, 'FindMyCar\data\dealers.csv')
+ZIP_INFO_PATH = os.path.join(BASE_DIR, 'FindMyCar\data\zip_info.csv')
+VEHICLE_INFO_PATH = os.path.join(BASE_DIR, 'FindMyCar\data\listings.csv')
+DEALER_INFO_PATH = os.path.join(BASE_DIR, 'FindMyCar\data\dealers.csv')
 
-ZIP_INFO_PATH = r'E:\Py\FindMyCar\data\zip_info.csv'
-VEHICLE_INFO_PATH = r'E:\Py\FindMyCar\data\listings.csv'
-DEALER_INFO_PATH = r'E:\Py\FindMyCar\data\dealers.csv'
+# ZIP_INFO_PATH = r'E:\Py\FindMyCar\data\zip_info.csv'
+# VEHICLE_INFO_PATH = r'E:\Py\FindMyCar\data\listings.csv'
+# DEALER_INFO_PATH = r'E:\Py\FindMyCar\data\dealers.csv'
