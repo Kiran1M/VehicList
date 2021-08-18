@@ -48,7 +48,7 @@ class load_Data():
         self.port = port
 
     def loadData(self, charSet, table, dataFrame):
-        connection_string = f'mysql+mysqldb://{self.user}:{self.password}@{self.host}:{self.port}/{self.dbname}?charset={charSet}'
+        connection_string = f'mysql:pymysql//{self.user}:{self.password}@{self.host}:{self.port}/{self.dbname}?charset={charSet}'
         con_engine = create_engine(
             connection_string, pool_recycle=3600, pool_pre_ping=True, echo=False)
         dataFrame.to_sql(f'{table}', con=con_engine,

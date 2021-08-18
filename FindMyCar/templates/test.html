@@ -37,8 +37,12 @@ th, td {
 </head>
 <body>
 <div id=main-div>
-  {% if no_zip %}
-    <h2>Looks like you drove very far. No dat for given Pin available.</h2>
+  {% if no_zip_dist_detail.0 %}
+    <h2>Looks like you drove very far. No data for given Pin available.</h2>
+  {% elif no_zip_dist_detail.1 %}
+    <h2>No zip codes available for given distance</h2>
+  {% elif no_zip_dist_detail.2 %}
+    <h2>No details available for given zip and distance</h2>
   {% else %}
   <h2>Here are your probable Soul Cars. Happy Driving with VinAudit!!!</h2>
   <div id=tb-div>
