@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-+-t!ql=6q-4m$_@flw=1l9(_7076&lmk%z$%k8om34wl#pma24'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1']
 
 
 # Application definition
@@ -130,10 +130,10 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'FindMyCar/django_stored_static_assets')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-ZIP_INFO_PATH = os.path.join(BASE_DIR, 'FindMyCar\data\zip_info.csv')
-VEHICLE_INFO_PATH = os.path.join(BASE_DIR, 'FindMyCar\data\listings.csv')
-DEALER_INFO_PATH = os.path.join(BASE_DIR, 'FindMyCar\data\dealers.csv')
+# ZIP_INFO_PATH = os.path.join(BASE_DIR, 'FindMyCar\data\zip_info.csv')
+# VEHICLE_INFO_PATH = os.path.join(BASE_DIR, 'FindMyCar\data\listings.csv')
+# DEALER_INFO_PATH = os.path.join(BASE_DIR, 'FindMyCar\data\dealers.csv')
 
-# ZIP_INFO_PATH = r'E:\Py\FindMyCar\data\zip_info.csv'
-# VEHICLE_INFO_PATH = r'E:\Py\FindMyCar\data\listings.csv'
-# DEALER_INFO_PATH = r'E:\Py\FindMyCar\data\dealers.csv'
+ZIP_INFO_PATH = r'E:\Py\FindMyCar\data\zip_info.csv'
+VEHICLE_INFO_PATH = r'E:\Py\FindMyCar\data\listings.csv'
+DEALER_INFO_PATH = r'E:\Py\FindMyCar\data\dealers.csv'
